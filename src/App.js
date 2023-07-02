@@ -30,6 +30,7 @@ const initialState = {
 };
 
 function reducer(state, action) {
+	if (!state.isActive && action.type !== "open") return state;
 	switch (action.type) {
 		case "open":
 			return {
@@ -83,7 +84,7 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<h1>useReducer Bank Account</h1>
+			<h1>Bank Account</h1>
 			<p>Balance: {balance}</p>
 			<p>Loan: {loan}</p>
 
